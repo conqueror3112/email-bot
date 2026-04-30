@@ -1,0 +1,122 @@
+================================================================
+  SETUP GUIDE — Email Bot (One-time Setup)
+================================================================
+
+Follow these steps ONCE to set up the bot. After that, just run:
+    python mailer.py
+
+
+STEP 1: Create a Google Cloud Project
+--------------------------------------
+1. Go to: https://console.cloud.google.com/
+2. Click "Select a project" (top bar) → "NEW PROJECT"
+3. Name it anything (e.g., "Email Bot")
+4. Click "CREATE"
+
+
+STEP 2: Enable Gmail API + Google Sheets API
+----------------------------------------------
+1. In your project, go to: APIs & Services → Library
+   (or visit: https://console.cloud.google.com/apis/library)
+2. Search "Gmail API" → click it → click "ENABLE"
+3. Search "Google Sheets API" → click it → click "ENABLE"
+
+
+STEP 3: Configure OAuth Consent Screen
+----------------------------------------
+1. Go to: APIs & Services → OAuth consent screen
+2. Select "External" → click "CREATE"
+3. Fill in:
+   - App name: "Email Bot" (anything)
+   - User support email: your email
+   - Developer contact email: your email
+4. Click "SAVE AND CONTINUE"
+5. On "Scopes" page → click "SAVE AND CONTINUE" (skip it)
+6. On "Test users" page → click "ADD USERS"
+   - Add YOUR Gmail address (the one you'll send from)
+7. Click "SAVE AND CONTINUE" → "BACK TO DASHBOARD"
+
+
+STEP 4: Create OAuth Credentials
+----------------------------------
+1. Go to: APIs & Services → Credentials
+2. Click "CREATE CREDENTIALS" → "OAuth client ID"
+3. Application type: "Desktop app"
+4. Name: "Email Bot" (anything)
+5. Click "CREATE"
+6. Click "DOWNLOAD JSON" on the popup
+7. Rename the downloaded file to: credentials.json
+8. Move it to the email bot folder (same folder as mailer.py)
+
+
+STEP 5: Install Python Dependencies
+-------------------------------------
+Open terminal in the project folder and run:
+
+    pip install -r requirements.txt
+
+
+STEP 6: Update config.py
+--------------------------
+1. Open your Google Sheet in browser
+2. Copy the SPREADSHEET_ID from the URL:
+   https://docs.google.com/spreadsheets/d/THIS_PART_IS_THE_ID/edit
+3. Paste it in config.py → SPREADSHEET_ID
+4. Update SENDER_NAME with your name
+5. Update SUBJECT_TEMPLATE if you want a different subject line
+
+
+STEP 7: Edit template.txt
+---------------------------
+Edit template.txt with your email content.
+
+FIRST LINE must be the subject:
+   Subject: Exploring SDE Fresher & Internship Opportunities at {company_name}
+
+Then a blank line, then the email body.
+
+Use these placeholders (they get replaced per contact):
+   {first_name}   → HR's first name
+   {last_name}    → HR's last name
+   {company_name} → Company name
+   {title}        → HR's job title
+
+
+STEP 8: Share Sheet with your Google Account
+---------------------------------------------
+Make sure you are logged into the SAME Google account in your
+browser that you use for Gmail. The bot will ask you to sign in
+via browser on the first run.
+
+
+STEP 9: Run the Bot!
+----------------------
+    python mailer.py
+
+First run: browser opens for Google sign-in → allow access.
+After that: token is saved, no sign-in needed.
+
+
+================================================================
+  TROUBLESHOOTING
+================================================================
+
+"credentials.json not found"
+→ You haven't downloaded the OAuth credentials. See Step 4.
+
+"Column not found in sheet"
+→ Your sheet headers don't match config.py. Update the COL_*
+  values in config.py to match your exact column headers.
+
+"Token expired"
+→ Delete token.json and run again. It will re-authenticate.
+
+"403 Forbidden / Access denied"
+→ Make sure you added yourself as a Test User (Step 3, point 6).
+→ Make sure both APIs are enabled (Step 2).
+
+"Rate limit exceeded"
+→ Increase DELAY_BETWEEN_EMAILS in config.py (try 10-15 seconds).
+→ Gmail free accounts can send max 500 emails/day.
+
+================================================================

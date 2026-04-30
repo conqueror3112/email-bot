@@ -1,0 +1,29 @@
+Subject: Exploring SDE Fresher & Internship Opportunities at {company_name}
+
+{greeting}
+
+I hope you’re doing well.
+
+I’m Om Varma, a Software Engineer with hands-on experience in building scalable backend systems and full-stack applications. Currently, I’m working as a Software Development Engineer Intern at Mindtickle, where I’m developing backend microservices and recently architected a multi-agent LLM system to automate unit test generation, improving developer productivity.
+
+My technical stack includes C++, Java, Python, JavaScript, Node.js, React, MongoDB, and MySQL, along with experience in distributed systems, REST APIs, and performance optimization. I’ve also built impactful projects like a full-stack Ed-Tech platform and a vehicle routing optimization system using machine learning techniques.
+
+I’m currently a B.Tech Computer Science student at IIIT Nagpur (2022–2026) and am actively exploring Software Engineering fresher roles and internship opportunities at {company_name}.
+
+If your team is hiring or if you’re aware of any relevant opportunities, I would greatly appreciate the chance to connect and share my profile.
+
+Please find my resume below for your reference:
+
+Resume: https://drive.google.com/file/d/1sSggJyyntCJdOT7EVB5JRW5bCHdfwzxU/view
+
+Linkedin: https://www.linkedin.com/in/om-varma-a40912283/
+
+Mobile: +91-8623028352
+
+Email: omvarma1731@gmail.com
+
+Thank you for your time and consideration.
+
+Best regards,
+
+Om Varma
